@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+{% load static %}
+{% block title %}
+Profil-Oluştur
+{% endblock title %}
+{% block context %}
+<style>
+    .container {
+        margin-top: 100px;
+    }
+</style>
+{% include 'include/_navbar.html' %}
+    <div class="container w-50 mt-5 d-block">
+        <h3 class="text-light text-center">Profil Oluştur</h3>
+        <form action="" method="POST" enctype="multipart/form-data" class="w-50 w-auto text-light d-block ">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="Kayıt Ol" class="btn btn-danger d-block mt-3">
+        </form>
+       </div>
+        {% include 'include/_footer.html' %}
+{% endblock context %}

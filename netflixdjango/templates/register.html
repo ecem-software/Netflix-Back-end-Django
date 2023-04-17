@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+{% load static %}
+{% block title %}
+Register
+{% endblock title %}
+{% block context %}
+<!-- <style>
+    .container {
+        margin-top: 300px;
+    }
+</style> -->
+
+{% include 'include/_navbar.html' %}
+    <div class="container w-50 d-block">
+        <form action="" method="POST" class="w-50 w-auto text-light d-block ">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Kayıt Ol" class="btn btn-danger d-block">
+        </form>
+       </div>
+        {% include 'include/_footer.html' %}
+{% endblock context %}

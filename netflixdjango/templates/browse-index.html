@@ -1,0 +1,86 @@
+{% extends "index.html" %}
+{% load static %}
+{% block title %}
+{% endblock title %}
+{% block context %}
+
+  
+
+    <!-- Navbar -->
+
+  {% include 'include/_navbar.html' %}
+      <!-- Hero image -->
+     
+    
+      <div class="hero-image">
+
+        <div class="hero-text">
+            <h1>Sınırsız film, dizi ve çok daha fazlası.</h1>
+            <h4>İstediğiniz yerde izleyin. İstediğiniz zaman iptal edin.</h4>
+            <p>İzlemeye hazır mısınız? Üyelik oluşturmak veya üyeliğinze erişmek için e-posta adresinizi girin</p>
+
+            <form action="" method="GET"  >
+              <input type="text" name="search_movie" value="{{search_movie}}" class="form-control w-50 m-auto">
+              <input type="submit" class="btn btn-danger mt-3 px-5" value="Ara">
+            </form>
+
+            <button class="btn btn-secondary btn-lg mt-3">Oynat</button>
+            <button class="btn btn-secondary btn-lg mt-3">Daha Fazla Bilgi</button>
+        </div>
+
+      </div>
+
+      <div class="container">
+          <div class="row mt-5">
+
+            <h3 class="text-light">Netflix'te Popüler</h3>
+          {% for film in filmler %}
+            {% if film.Kategori.name == 'Popüler' or film.Kategori.name == 'Gündemde ve Popüler' %}
+              <div class="col-md-2 col-4 mt-1">
+                  <a href="video.html">
+                      <img src="{{film.resim.url}}" class="w-100" alt="">
+                  </a>
+              </div>
+            {% endif %}
+          {% endfor %}
+
+           
+
+
+          <div class="row mt-5">
+              <h3 class="text-light"> Gündemdekiler</h3>
+            {% for film in filmler %}
+              {% if film.Kategori.name == 'Gündemdekiler' or film.Kategori.name == 'Gündemde ve Popüler' %}
+                  
+                  <div class="col-md-2 col-4 mt-1">
+                      <a href="video.html">
+                          <img src="{{film.resim.url}}" class="w-100" alt="">
+                      </a>
+                  </div>
+            {% endif %}
+          {% endfor %}
+            
+          </div>
+      </div>
+
+      <div class="row mt-5">
+        <h3 class="text-light"> İzlenenler</h3>
+      {% for film in izlenen %}
+        
+            
+            <div class="col-md-2 col-4 mt-1">
+                <a href="video.html">
+                    <img src="{{film.resim.url}}" class="w-100" alt="">
+                </a>
+            </div>
+      
+    {% endfor %}
+</div>
+      </div>
+
+      {% include "include/_footer.html" %}
+      {% endblock context %}
+
+
+
+    
